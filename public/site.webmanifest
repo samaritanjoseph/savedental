@@ -1,0 +1,16 @@
+{
+  "name": "Save Dental Clinic",
+  "short_name": "Save Dental",
+  "description": "Ultra modern dental care in Oluyole / Ring Road, Ibadan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fbf3",
+  "theme_color": "#07863f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

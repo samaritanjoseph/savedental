@@ -1,0 +1,443 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "experience": "Experience",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "book": "Book Now"
+  },
+  "theme": {
+    "dark": "Dark Mode",
+    "light": "Light Mode"
+  },
+  "home": {
+    "eyebrow": "Ultra Modern Clinic in Ibadan",
+    "title": "Dental care that helps Ibadan smile brighter.",
+    "desc": "Save Dental Clinic provides teeth cleaning, fillings, root canal therapy, whitening, dental X-rays, implantology, braces, veneers, crowns, bridges, and general dental treatment in Ring Road, Ibadan.",
+    "call": "Call",
+    "whatsapp_booking": "WhatsApp Booking",
+    "view_instagram": "View Instagram",
+    "appointments_available": "Appointments available",
+    "book_visit": "Book a dental visit today",
+    "open_status_detail": "Working Hours",
+    "core_services": "Core dental services",
+    "opening_time": "Weekday opening time",
+    "location_area": "No. 60 Ring Road area",
+    "instagram_presence": "Instagram presence",
+    "working_hours": "Working Hours",
+    "working_hours_details": "Mon–Fri: 8am–6pm | Sat: 9am–5pm | Sun: 12pm–4pm",
+    "location": "Location",
+    "stamp_text": "...a perfect oral health is possible",
+    "pill_scaling": "Scaling & polishing",
+    "pill_comfort": "Comfort-led care"
+  },
+  "services": {
+    "title": "Comprehensive Dental Services",
+    "subtitle": "Discover the high-quality treatments we offer to protect and enhance your smile.",
+    "approved_list": "Approved service list from Save Dental",
+    "book_button": "Book"
+  },
+  "about": {
+    "title": "A clinic designed for comfort and quality care.",
+    "subtitle": "About Save Dental",
+    "desc": "Save Dental Clinic focuses on personalized care in a warm environment. Our team prioritizes patient comfort.",
+    "gallery_title": "Real Save Dental photos and official flyers.",
+    "visual_desc": "The visual direction now combines clean medical whitespace with Save Dental's real clinic photos, green/orange brand colours, soft gradients, and rounded cards to communicate hygiene, calmness, and trust.",
+    "feature_patient": "Patient-centred treatment tone",
+    "feature_social": "Social media friendly visuals",
+    "feature_local": "Strong local search signals",
+    "find_clinic": "Find the clinic",
+    "floating_note": "Prevention \u2022 Treatment \u2022 Education",
+    "social_eyebrow": "Social Direction",
+    "social_title": "Designed to connect the website with their Instagram presence.",
+    "social_desc": "The public Instagram handle uses educational dental content and treatment awareness. This site supports that by making services, booking, and patient education easy to find.",
+    "social_card_desc": "Use Instagram for treatment education, before/after posts when approved, clinic updates, braces tips, and oral hygiene content.",
+    "open_instagram": "Open Instagram",
+    "tips_eyebrow": "Oral Care Tips",
+    "tips_title": "Helpful education that matches the clinic's social content.",
+    "tips_desc": "Short tips make the website feel useful, not just promotional, and give Save Dental more content to reuse on Instagram.",
+    "gallery_eyebrow": "Gallery",
+    "gallery_desc": "A selection of our promotional content showing the treatment room, patient care, service flyers, opening hours, and Save Dental's clinic branding.",
+    "view_photo": "View photo"
+  },
+  "experience": {
+    "title": "Step into a stress-free dental experience.",
+    "subtitle": "Patient Experience",
+    "desc": "From the moment you walk in, our clinic provides a relaxing atmosphere.",
+    "safety_eyebrow": "Safety & Sterilization",
+    "safety_title": "Clean, protected, and patient-conscious care.",
+    "safety_desc": "The clinic photos show a protected treatment setup. This section turns that visual proof into trust-building UX for first-time patients.",
+    "journey_title": "A clear journey from appointment to after-care.",
+    "photo_caption": "Comfortable treatment room environment"
+  },
+  "booking": {
+    "title": "Your Next Step",
+    "subtitle": "Your smile, your schedule.",
+    "desc": "Choose your preferred way to contact us. Skip the waiting room and secure your consultation today.",
+    "call_us": "Call Us",
+    "call_desc": "Speak directly to our team",
+    "whatsapp": "WhatsApp",
+    "whatsapp_desc": "Chat & book in seconds",
+    "online": "Online Booking",
+    "online_desc": "Fill out our secure form",
+    "fast_track": "Fast-track your booking",
+    "fast_track_desc": "Prefer a human voice? Call us to secure your slot instantly.",
+    "book_whatsapp": "Book via WhatsApp",
+    "book_whatsapp_desc": "Tap your treatment to send us a quick message in seconds.",
+    "request_appt": "Request an Appointment",
+    "request_appt_desc": "Tell us what you need below. We'll follow up shortly to confirm your exact time slot!",
+    "full_name": "Full name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "service_needed": "Service needed",
+    "pref_date": "Preferred date",
+    "pref_time": "Preferred time",
+    "notes": "Additional notes",
+    "submit": "Submit Appointment Request",
+    "emergency_eyebrow": "Dental Emergency",
+    "emergency_title": "Tooth pain, swelling, or broken tooth?",
+    "emergency_desc": "Contact the clinic quickly instead of self-medicating or waiting until symptoms worsen.",
+    "call_now": "Call now",
+    "urgent_help": "Request urgent help",
+    "primary_line": "Primary Line",
+    "secondary_line": "Secondary Line",
+    "emergency": "Emergency dental care",
+    "success_title": "Request Sent Successfully!",
+    "success_desc": "Thank you for choosing Save Dental Clinic. We have received your appointment request.",
+    "success_next": "What happens next?",
+    "success_step1": "We will review your requested time and service.",
+    "success_step2": "You will receive a confirmation email shortly.",
+    "success_step3": "Our team may call you if we need to adjust the time.",
+    "book_another": "Book Another Appointment",
+    "patient_details": "Patient Details",
+    "appt_details": "Appointment Details",
+    "name_placeholder": "Your full name",
+    "email_placeholder": "you@example.com",
+    "select_time": "Select a time",
+    "time_morning": "Morning",
+    "time_afternoon": "Afternoon",
+    "time_late_afternoon": "Late Afternoon",
+    "notes_placeholder": "Describe your symptoms or what you'd like help with",
+    "optional": "optional",
+    "sending": "Sending...",
+    "before_visit": "Before you visit"
+  },
+  "faq": {
+    "title": "Frequently asked questions.",
+    "subtitle": "Got Questions?",
+    "desc": "Find answers to the most common questions about treatments and operations.",
+    "cta_ready": "Ready to smile?",
+    "cta_need": "Need cleaning, fillings, whitening, dental X-rays, braces, or urgent dental care?",
+    "cta_call": "Call Save Dental Clinic to confirm appointment times and available treatments.",
+    "cta_btn": "Call the clinic",
+    "flyer_caption": "Opening days and time from the approved flyer"
+  },
+  "contact": {
+    "title": "Get directions to Save Dental Clinic.",
+    "subtitle": "Contact Us",
+    "desc": "Use the map search below to locate Save Dental Clinic at Dikat House.",
+    "open_maps": "Open in Google Maps",
+    "visit_title": "Visit Save Dental Clinic on Ring Road, Ibadan.",
+    "visit_desc": "Approved clinic flyers list the location as Dikat House, First Floor, Complex, A1 No. 60 Ring Road, Ibadan, Oyo State. Call before visiting to confirm current availability.",
+    "flyer_caption": "Official flyer with Ring Road address and contact details",
+    "whatsapp_label": "WhatsApp Save Dental"
+  },
+  "footer": {
+    "cta_tag": "Ready for a brighter smile?",
+    "cta_heading": "Book your appointment today.",
+    "call_now": "Call Now",
+    "whatsapp_us": "WhatsApp Us"
+  },
+  "data": {
+    "services": {
+      "teeth_cleaning": {
+        "title": "Teeth Cleaning",
+        "description": "Professional cleaning to remove stains, plaque, and tartar for fresher confidence."
+      },
+      "tooth_fillings": {
+        "title": "Tooth Fillings",
+        "description": "Comfort-focused restorations that repair cavities and protect natural tooth structure."
+      },
+      "root_canal": {
+        "title": "Root Canal Therapy",
+        "description": "Targeted treatment designed to relieve pain and preserve natural teeth when possible."
+      },
+      "teeth_whitening": {
+        "title": "Teeth Whitening",
+        "description": "Smile-brightening treatment for patients who want a cleaner, more confident look."
+      },
+      "dental_implantology": {
+        "title": "Dental Implantology",
+        "description": "Modern tooth replacement options to restore confidence, function, and appearance."
+      },
+      "dental_xrays": {
+        "title": "Dental X-rays",
+        "description": "Diagnostic imaging that helps the dental team plan safer, clearer treatment."
+      },
+      "braces": {
+        "title": "Orthodontic & Invisible Braces",
+        "description": "Braces and alignment options including educational content on self-ligating braces."
+      },
+      "veneers": {
+        "title": "Veneers, Crowns & Bridges",
+        "description": "Cosmetic and restorative options for stronger, better-looking smiles."
+      },
+      "general": {
+        "title": "General Dental Treatment",
+        "description": "Everyday dental care for patients who need consultation, prevention, or treatment."
+      }
+    },
+    "highlights": {
+      "h1": "Ultra modern dental clinic",
+      "h2": "Warm, anxiety-friendly care",
+      "h3": "Family dental services",
+      "h4": "No. 60 Ring Road, Ibadan"
+    },
+    "processSteps": {
+      "step1": "Book your appointment by phone, WhatsApp, or Instagram.",
+      "step2": "Get a careful consultation and treatment plan.",
+      "step3": "Receive comfortable care from the dental team.",
+      "step4": "Leave with after-care guidance for lasting results."
+    },
+    "openingHours": {
+      "weekdays": {
+        "days": "Mondays - Fridays",
+        "time": "8:00am - 6:00pm"
+      },
+      "saturday": {
+        "days": "Saturday",
+        "time": "9:00am - 5:00pm"
+      },
+      "sunday": {
+        "days": "Sundays",
+        "time": "12noon - 4:00pm"
+      }
+    },
+    "safetyItems": {
+      "setup": {
+        "title": "Protected treatment setup",
+        "text": "Clinical photos show the team using masks, gloves, caps, and protective barriers during patient care."
+      },
+      "environment": {
+        "title": "Clean treatment environment",
+        "text": "The website highlights real chair-side images so patients know what to expect before visiting."
+      },
+      "guidance": {
+        "title": "Clear after-care guidance",
+        "text": "Patients are encouraged to ask questions and leave with practical instructions after treatment."
+      }
+    },
+    "carePromises": {
+      "calm": {
+        "title": "Calm first visit",
+        "text": "A welcoming experience that helps new patients feel safe before treatment begins."
+      },
+      "explanation": {
+        "title": "Clear explanation",
+        "text": "Simple treatment guidance, expected outcomes, and after-care instructions."
+      },
+      "modern": {
+        "title": "Modern confidence",
+        "text": "A brand feel that matches an ultra modern dental clinic and social-first audience."
+      }
+    },
+    "dentalTips": {
+      "brush": {
+        "title": "Brush twice daily",
+        "text": "Use a soft toothbrush and fluoride toothpaste for two minutes, especially before bedtime."
+      },
+      "pain": {
+        "title": "Treat pain early",
+        "text": "Do not wait until tooth pain becomes severe. Early care can make treatment simpler."
+      },
+      "cleaning": {
+        "title": "Plan routine cleaning",
+        "text": "Professional scaling and polishing helps remove stains and tartar that brushing cannot reach."
+      }
+    },
+    "galleryItems": {
+      "treatment": "Treatment in progress",
+      "flyer1": "Save Dental services flyer",
+      "chair": "Dental chair and treatment room",
+      "hours": "Opening days and time",
+      "campaign": "D-Day campaign flyer",
+      "patient_care": "Patient care session"
+    },
+    "visitChecklist": {
+      "call": "Call or send WhatsApp to confirm availability.",
+      "symptoms": "Describe your symptoms or the service you need.",
+      "records": "Bring previous dental records or X-rays if available.",
+      "aftercare": "Ask about after-care steps before leaving the clinic."
+    },
+    "faqs": {
+      "location": {
+        "question": "Where is Save Dental Clinic located?",
+        "answer": "The approved clinic flyer lists Save Dental Clinic at Dikat House, First Floor, Complex, A1 No. 60 Ring Road, Ibadan, Oyo State."
+      },
+      "booking": {
+        "question": "How can patients book an appointment?",
+        "answer": "Patients can call +234 815 228 7675, call +234 702 598 9518, use WhatsApp from this website, or message the Instagram account @save_dental."
+      },
+      "services": {
+        "question": "What dental services are available?",
+        "answer": "The approved service flyer promotes teeth cleaning, tooth fillings, root canal therapy, teeth whitening, dental implantology, dental X-rays, orthodontic and invisible braces, veneers, crowns, bridges, and general dental treatment."
+      },
+      "hours": {
+        "question": "What are the opening hours?",
+        "answer": "The approved opening-hours flyer lists Mondays to Fridays 8:00am - 6:00pm, Saturday 9:00am - 5:00pm, and Sundays 12noon - 4:00pm."
+      },
+      "whatsapp": {
+        "question": "Can I book teeth cleaning through WhatsApp?",
+        "answer": "Yes. Use the service-specific booking buttons or the appointment form to open WhatsApp with a ready-made booking message."
+      },
+      "emergencies": {
+        "question": "Do they handle tooth pain or dental emergencies?",
+        "answer": "The website includes an urgent-help WhatsApp action for tooth pain, swelling, broken tooth, or emergency dental care. Patients should contact the clinic quickly for guidance."
+      },
+      "braces": {
+        "question": "Do they offer braces?",
+        "answer": "Yes. The approved flyer lists orthodontic and invisible braces, and their Instagram also includes educational content about self-ligating braces."
+      },
+      "xrays": {
+        "question": "Do they offer dental X-rays?",
+        "answer": "Yes. Dental X-rays are included on the approved Save Dental services flyer."
+      },
+      "sundays": {
+        "question": "Is the clinic open on Sundays?",
+        "answer": "Yes. The approved opening-hours flyer lists Sundays from 12noon to 4:00pm."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Patient Testimonials",
+    "subtitle": "See what our patients have to say about their experience.",
+    "verified": "Verified Patient",
+    "no_reviews": "No reviews yet. Be the first to share your experience!",
+    "leave": "Leave a Review",
+    "success": "Thank you! Your review has been submitted and is pending approval.",
+    "name": "Name",
+    "rating": "Rating",
+    "comment": "Comment",
+    "submitting": "Submitting...",
+    "submit": "Submit Review",
+    "comments": {
+      "Josephine A.": "Amazing teeth cleaning! Very professional team, and the treatment room is super clean. Will definitely return.",
+      "Emeka O.": "Got my wisdom teeth extracted. Virtually painless and they explained the whole after-care process clearly!",
+      "Sarah K.": "Great clinic on Ring Road. The staff is polite, and they accept appointment times accurately. Clean setup.",
+      "Oluwaseun T.": "Love their orthodontics service! Got self-ligating braces and the follow-ups have been very smooth.",
+      "David M.": "Professional scaling and polishing. They made me feel so relaxed since I usually have dental anxiety.",
+      "Adebayo F.": "High quality fillings. Service was fast and very reasonable prices. Highly recommended!",
+      "Samaritan Joe.": "High quality fillings. Service was fast and very reasonable prices. Highly recommended!"
+    }
+  },
+  "chat": {
+    "tooltip": "Greetings! How can I help? 👋",
+    "assistant": "Save Dental Assistant",
+    "status": "Online • Replies instantly",
+    "placeholder": "Type your message…",
+    "qr": {
+      "services": "Services offered",
+      "hours": "Opening hours",
+      "location": "Where are you located?",
+      "book": "Book appointment",
+      "contact": "Contact number",
+      "whatsapp": "WhatsApp us now",
+      "call": "Call the clinic",
+      "directions": "Get directions",
+      "book_online": "Book online now"
+    },
+    "reply": {
+      "welcome": "👋 Hi there! Welcome to **Save Dental Clinic**. I can help you with our services, opening hours, location and bookings.\n\nHow can I assist you today?",
+      "services": "🦷 We offer a full range of dental services:\n\n• Teeth Cleaning\n• Tooth Fillings\n• Root Canal Therapy\n• Teeth Whitening\n• Dental Implantology\n• Dental X-rays\n• Orthodontic & Invisible Braces\n• Veneers, Crowns & Bridges\n• General Dental Treatment\n\nWould you like to book an appointment for any of these?",
+      "cleaning": "✨ Our **Teeth Cleaning** (scaling & polishing) service removes plaque, tartar and stains that brushing can't reach. It's recommended every 6 months for a healthy smile.\n\nWould you like to book a session?",
+      "whitening": "⭐ Our **Teeth Whitening** treatment gives you a brighter, more confident smile. It's quick, safe, and professionally done at our clinic.\n\nWould you like to book?",
+      "root_canal": "🛡️ Our **Root Canal Therapy** relieves severe tooth pain and saves your natural tooth. Our team makes the procedure as comfortable as possible.\n\nWould you like to book a consultation?",
+      "braces": "😁 We offer **Orthodontic & Invisible Braces** including self-ligating braces. We'll assess your teeth and recommend the best option for you.\n\nWould you like a consultation?",
+      "implants": "🦷 Our **Dental Implantology** service provides permanent, natural-looking tooth replacement. Implants restore your smile, confidence and chewing function.\n\nWant to book a consultation?",
+      "xray": "📷 We provide **Dental X-rays** to help diagnose issues that aren't visible to the naked eye. This ensures safer, more accurate treatment planning.",
+      "emergency": "🚨 **Dental Emergency?** Please contact us immediately!\n\n📞 {{phone1}}\n📞 {{phone2}}\n\nOr click below to send us a WhatsApp message and we'll respond as quickly as possible.",
+      "hours_msg": "🕐 Our opening hours are:\n\n{{hours}}\n\nWe're open 7 days a week! Would you like to book an appointment?",
+      "location_msg": "📍 You can find us at:\n\n**{{address}}**\n\nWe're easy to find on Ring Road, Ibadan. You can get directions via Google Maps.",
+      "booking_msg": "📅 You can book an appointment in three ways:\n\n1. **Online** – Fill out our booking form on this website\n2. **Call us** – {{phone1}}\n3. **WhatsApp** – Send us a message\n\nOur team will confirm your appointment by email or phone.",
+      "contact_msg": "📞 You can reach us at:\n\n• **{{phone1}}**\n• **{{phone2}}**\n• **Email:** {{email}}\n• **Instagram:** {{instagram}}",
+      "price": "💰 Our pricing depends on the specific treatment needed. We believe in transparent, fair pricing and will always explain costs before starting any treatment.\n\nFor an accurate quote, we recommend booking a consultation.",
+      "family": "👨‍👩‍👧 Yes! We provide **family dental services** and our team is experienced with patients of all ages. We create a calm, welcoming environment that helps children feel comfortable.",
+      "safety": "🛡️ Patient safety is our top priority. Our team uses **masks, gloves, caps and protective barriers** during all procedures. Our treatment environment is kept clean and fully sterilised.",
+      "instagram_msg": "📸 Follow us on Instagram at **{{instagram}}** for clinic updates, dental tips, patient results, and educational content about our treatments.",
+      "thanks": "😊 You're welcome! We're always happy to help. Is there anything else you'd like to know about Save Dental Clinic?",
+      "bye": "👋 Goodbye! We look forward to seeing you at Save Dental Clinic. Have a great day and remember to keep smiling! 😄",
+      "fallback": "🤔 I'm not sure I understood that. Let me connect you with the right option. You can also call us directly or ask me about our services, hours, or location."
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "sidebar": {
+        "overview": "Overview",
+        "schedule": "Schedule",
+        "patients": "Patients",
+        "all_bookings": "All Bookings",
+        "reviews": "Reviews",
+        "site_settings": "Site Settings",
+        "staff_users": "Staff Users",
+        "panel_title": "Admin Panel",
+        "navigation": "Navigation",
+        "sign_out": "Sign Out"
+      },
+      "titles": {
+        "overview": "Dashboard Overview",
+        "overview_sub": "Today is {{date}}",
+        "schedule": "Clinic Schedule",
+        "schedule_sub": "View and manage all appointments",
+        "patients": "Patient Directory",
+        "patients_sub": "Browse and manage patient records",
+        "all_bookings": "All Bookings",
+        "all_bookings_sub": "Full booking history and status management",
+        "reviews": "Reviews Management",
+        "reviews_sub": "Approve or hide patient testimonials",
+        "staff": "Staff Directory",
+        "staff_sub": "Manage system access and roles",
+        "settings": "Site Settings",
+        "settings_sub": "Update clinic info, hours, banners, and homepage content"
+      },
+      "stats": {
+        "total_bookings": "Total Bookings",
+        "pending": "Pending",
+        "today": "Today",
+        "patients": "Patients",
+        "staff_members": "Staff Members"
+      },
+      "overview": {
+        "pending_approvals": "⚠️ Pending Approvals ({{count}})",
+        "upcoming_confirmed": "Upcoming Confirmed ({{count}})",
+        "patient": "Patient",
+        "service_time": "Service & Time",
+        "contact": "Contact",
+        "actions": "Actions",
+        "confirm": "Confirm",
+        "loading": "Loading…",
+        "no_upcoming": "No upcoming confirmed appointments.",
+        "service": "Service",
+        "date_time": "Date & Time",
+        "status": "Status",
+        "mark_completed": "Mark Completed"
+      },
+      "all_bookings": {
+        "title": "All Bookings",
+        "total": "{{count}} total",
+        "loading": "Loading appointments…",
+        "patient": "Patient",
+        "contact": "Contact",
+        "service_time": "Service & Time",
+        "booked_on": "Booked On",
+        "notes": "Notes",
+        "status": "Status",
+        "actions": "Actions",
+        "confirm": "Confirm",
+        "mark_completed": "Mark Completed",
+        "no_appointments": "No appointments found."
+      }
+    }
+  }
+}

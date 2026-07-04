@@ -1,0 +1,443 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "experience": "Experiencia",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "book": "Reservar Ahora"
+  },
+  "theme": {
+    "dark": "Modo Oscuro",
+    "light": "Modo Claro"
+  },
+  "home": {
+    "eyebrow": "Clínica Ultra Moderna en Ibadán",
+    "title": "Cuidado dental que ayuda a Ibadán a sonreír más brillante.",
+    "desc": "Save Dental Clinic ofrece limpieza dental, empastes, terapia de conducto, blanqueamiento, radiografías dentales, implantología, ortodoncia, carillas, coronas, puentes y tratamiento dental general en Ring Road, Ibadán.",
+    "call": "Llamar",
+    "whatsapp_booking": "Reserva por WhatsApp",
+    "view_instagram": "Ver Instagram",
+    "appointments_available": "Citas disponibles",
+    "book_visit": "Reserva una visita dental hoy",
+    "open_status_detail": "Horario de trabajo",
+    "core_services": "Servicios dentales",
+    "opening_time": "Hora de apertura",
+    "location_area": "Área de Ring Road",
+    "instagram_presence": "Presencia en Instagram",
+    "working_hours": "Horario Laboral",
+    "working_hours_details": "Lun–Vie: 8am–6pm | Sáb: 9am–5pm | Dom: 12pm–4pm",
+    "location": "Ubicación",
+    "stamp_text": "...una salud oral perfecta es posible",
+    "pill_scaling": "Limpieza dental",
+    "pill_comfort": "Atención cómoda"
+  },
+  "services": {
+    "title": "Servicios Dentales Integrales",
+    "subtitle": "Descubra los tratamientos de alta calidad que ofrecemos para proteger su sonrisa.",
+    "approved_list": "Lista de servicios aprobados",
+    "book_button": "Reservar"
+  },
+  "about": {
+    "title": "Una clínica diseñada para su comodidad.",
+    "subtitle": "Sobre Save Dental",
+    "desc": "Save Dental Clinic se centra en una atención personalizada en un ambiente cálido.",
+    "gallery_title": "Fotos reales y folletos oficiales.",
+    "visual_desc": "La dirección visual combina un espacio blanco médico limpio con las fotos reales de la clínica de Save Dental, colores de marca verde/naranja, degradados suaves y tarjetas redondeadas para comunicar higiene, calma y confianza.",
+    "feature_patient": "Atención centrada en el paciente",
+    "feature_social": "Visuales amigables para redes sociales",
+    "feature_local": "Fuertes señales de búsqueda local",
+    "find_clinic": "Encontrar la clínica",
+    "floating_note": "Prevención \u2022 Tratamiento \u2022 Educación",
+    "social_eyebrow": "Dirección Social",
+    "social_title": "Diseñado para conectar el sitio web con su presencia en Instagram.",
+    "social_desc": "La cuenta pública de Instagram usa contenido dental educativo. Este sitio apoya eso haciendo que los servicios, reservas y la educación del paciente sean fáciles de encontrar.",
+    "social_card_desc": "Use Instagram para educación sobre tratamientos, publicaciones antes/después, actualizaciones de la clínica, consejos sobre frenos y contenido de higiene oral.",
+    "open_instagram": "Abrir Instagram",
+    "tips_eyebrow": "Consejos de Cuidado Bucal",
+    "tips_title": "Educación útil que coincide con el contenido social de la clínica.",
+    "tips_desc": "Los consejos cortos hacen que el sitio web sea útil, no solo promocional, y dan a Save Dental más contenido para reutilizar en Instagram.",
+    "gallery_eyebrow": "Galería",
+    "gallery_desc": "Una selección de nuestro contenido promocional que muestra la sala de tratamiento, atención al paciente, folletos de servicios, horarios de apertura y la marca de la clínica Save Dental.",
+    "view_photo": "Ver foto"
+  },
+  "experience": {
+    "title": "Experimente una visita sin estrés.",
+    "subtitle": "Experiencia del Paciente",
+    "desc": "Desde el momento en que entra, nuestra clínica ofrece un ambiente relajante.",
+    "safety_eyebrow": "Seguridad y Esterilización",
+    "safety_title": "Atención limpia, protegida y consciente del paciente.",
+    "safety_desc": "Las fotos de la clínica muestran una configuración de tratamiento protegida. Esta sección convierte esa prueba visual en UX de confianza para los nuevos pacientes.",
+    "journey_title": "Un camino claro desde la cita hasta los cuidados posteriores.",
+    "photo_caption": "Ambiente cómodo de la sala de tratamiento"
+  },
+  "booking": {
+    "title": "Su Próximo Paso",
+    "subtitle": "Su sonrisa, su horario.",
+    "desc": "Elija su forma preferida de contactarnos. Evite la sala de espera y asegure su consulta hoy.",
+    "call_us": "Llámenos",
+    "call_desc": "Hable directamente con nuestro equipo",
+    "whatsapp": "WhatsApp",
+    "whatsapp_desc": "Chatee y reserve en segundos",
+    "online": "Reserva Online",
+    "online_desc": "Complete nuestro formulario seguro",
+    "fast_track": "Acelere su reserva",
+    "fast_track_desc": "¿Prefiere una voz humana? Llámenos.",
+    "book_whatsapp": "Reserva vía WhatsApp",
+    "book_whatsapp_desc": "Toque su tratamiento para enviarnos un mensaje.",
+    "request_appt": "Solicitar una Cita",
+    "request_appt_desc": "Díganos qué necesita a continuación.",
+    "full_name": "Nombre completo",
+    "email": "Correo electrónico",
+    "phone": "Número de teléfono",
+    "service_needed": "Servicio necesario",
+    "pref_date": "Fecha preferida",
+    "pref_time": "Hora preferida",
+    "notes": "Notas adicionales",
+    "submit": "Enviar solicitud",
+    "emergency_eyebrow": "Emergencia Dental",
+    "emergency_title": "¿Dolor dental, inflamación o diente roto?",
+    "emergency_desc": "Contacte a la clínica rápidamente en lugar de automedicarse o esperar hasta que los síntomas empeoren.",
+    "call_now": "Llamar ahora",
+    "urgent_help": "Solicitar ayuda urgente",
+    "primary_line": "Línea Principal",
+    "secondary_line": "Línea Secundaria",
+    "emergency": "Atención dental de emergencia",
+    "success_title": "¡Solicitud enviada con éxito!",
+    "success_desc": "Gracias por elegir Save Dental Clinic. Hemos recibido su solicitud de cita.",
+    "success_next": "¿Qué sigue?",
+    "success_step1": "Revisaremos su hora y servicio solicitados.",
+    "success_step2": "Recibirá un correo electrónico de confirmación pronto.",
+    "success_step3": "Nuestro equipo puede llamarle si necesitamos ajustar la hora.",
+    "book_another": "Reservar otra cita",
+    "patient_details": "Datos del paciente",
+    "appt_details": "Detalles de la cita",
+    "name_placeholder": "Su nombre completo",
+    "email_placeholder": "usted@ejemplo.com",
+    "select_time": "Seleccione una hora",
+    "time_morning": "Mañana",
+    "time_afternoon": "Tarde",
+    "time_late_afternoon": "Última hora de la tarde",
+    "notes_placeholder": "Describa sus síntomas o con qué le gustaría obtener ayuda",
+    "optional": "opcional",
+    "sending": "Enviando...",
+    "before_visit": "Antes de su visita"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes.",
+    "subtitle": "¿Tiene preguntas?",
+    "desc": "Encuentre respuestas a las preguntas más comunes sobre tratamientos.",
+    "cta_ready": "¿Listo para sonreír?",
+    "cta_need": "¿Necesita limpieza, empastes, blanqueamiento, radiografías, ortodoncia o atención dental urgente?",
+    "cta_call": "Llame a Save Dental Clinic para confirmar horarios y tratamientos disponibles.",
+    "cta_btn": "Llamar a la clínica",
+    "flyer_caption": "Días y horarios de apertura del folleto aprobado"
+  },
+  "contact": {
+    "title": "Obtener direcciones a Save Dental.",
+    "subtitle": "Contáctenos",
+    "desc": "Utilice la búsqueda de mapas a continuación para localizarnos.",
+    "open_maps": "Abrir en Google Maps",
+    "visit_title": "Visite Save Dental Clinic en Ring Road, Ibadan.",
+    "visit_desc": "Los folletos oficiales de la clínica indican la ubicación como Dikat House, Primer Piso, Complejo, A1 No. 60 Ring Road, Ibadan, Estado de Oyo. Llame antes de visitar para confirmar la disponibilidad actual.",
+    "flyer_caption": "Folleto oficial con dirección de Ring Road y datos de contacto",
+    "whatsapp_label": "WhatsApp Save Dental"
+  },
+  "footer": {
+    "cta_tag": "¿Listo para una sonrisa más brillante?",
+    "cta_heading": "Reserve su cita hoy.",
+    "call_now": "Llamar Ahora",
+    "whatsapp_us": "Escribirnos por WhatsApp"
+  },
+  "data": {
+    "services": {
+      "teeth_cleaning": {
+        "title": "Limpieza Dental",
+        "description": "Limpieza profesional para eliminar manchas, placa y sarro para mayor confianza."
+      },
+      "tooth_fillings": {
+        "title": "Empastes Dentales",
+        "description": "Restauraciones cómodas que reparan caries y protegen la estructura dental natural."
+      },
+      "root_canal": {
+        "title": "Terapia de Conducto",
+        "description": "Tratamiento dirigido para aliviar el dolor y preservar los dientes naturales cuando sea posible."
+      },
+      "teeth_whitening": {
+        "title": "Blanqueamiento Dental",
+        "description": "Tratamiento de blanqueamiento para pacientes que desean una apariencia más limpia y segura."
+      },
+      "dental_implantology": {
+        "title": "Implantología Dental",
+        "description": "Opciones modernas de reemplazo dental para restaurar la confianza, función y apariencia."
+      },
+      "dental_xrays": {
+        "title": "Radiografías Dentales",
+        "description": "Imágenes diagnósticas que ayudan al equipo dental a planificar un tratamiento más seguro."
+      },
+      "braces": {
+        "title": "Ortodoncia y Brackets Invisibles",
+        "description": "Opciones de brackets y alineación incluyendo contenido educativo sobre brackets autoligantes."
+      },
+      "veneers": {
+        "title": "Carillas, Coronas y Puentes",
+        "description": "Opciones cosméticas y de restauración para sonrisas más fuertes y hermosas."
+      },
+      "general": {
+        "title": "Tratamiento Dental General",
+        "description": "Cuidado dental cotidiano para pacientes que necesitan consulta, prevención o tratamiento."
+      }
+    },
+    "highlights": {
+      "h1": "Clínica ultra moderna",
+      "h2": "Atención cálida y sin ansiedad",
+      "h3": "Servicios dentales familiares",
+      "h4": "No. 60 Ring Road, Ibadán"
+    },
+    "processSteps": {
+      "step1": "Reserve su cita por teléfono, WhatsApp o Instagram.",
+      "step2": "Obtenga una consulta y plan de tratamiento detallado.",
+      "step3": "Reciba atención cómoda del equipo dental.",
+      "step4": "Salga con orientación de cuidado posterior para resultados duraderos."
+    },
+    "openingHours": {
+      "weekdays": {
+        "days": "Lunes - Viernes",
+        "time": "8:00am - 6:00pm"
+      },
+      "saturday": {
+        "days": "Sábado",
+        "time": "9:00am - 5:00pm"
+      },
+      "sunday": {
+        "days": "Domingos",
+        "time": "12mediodía - 4:00pm"
+      }
+    },
+    "safetyItems": {
+      "setup": {
+        "title": "Configuración de tratamiento protegida",
+        "text": "Las fotos clínicas muestran al equipo usando mascarillas, guantes, gorros y barreras protectoras durante la atención."
+      },
+      "environment": {
+        "title": "Ambiente de tratamiento limpio",
+        "text": "El sitio web destaca imágenes reales al lado del sillón para que los pacientes sepan qué esperar antes de visitar."
+      },
+      "guidance": {
+        "title": "Orientación clara de cuidado posterior",
+        "text": "Se anima a los pacientes a hacer preguntas y salir con instrucciones prácticas después del tratamiento."
+      }
+    },
+    "carePromises": {
+      "calm": {
+        "title": "Primera visita tranquila",
+        "text": "Una experiencia acogedora que ayuda a los nuevos pacientes a sentirse seguros antes de que comience el tratamiento."
+      },
+      "explanation": {
+        "title": "Explicación clara",
+        "text": "Orientación de tratamiento simple, resultados esperados e instrucciones de cuidado posterior."
+      },
+      "modern": {
+        "title": "Confianza moderna",
+        "text": "Una identidad de marca que coincide con una clínica dental ultra moderna y un público digital."
+      }
+    },
+    "dentalTips": {
+      "brush": {
+        "title": "Cepille dos veces al día",
+        "text": "Use un cepillo suave y pasta de dientes con flúor durante dos minutos, especialmente antes de acostarse."
+      },
+      "pain": {
+        "title": "Trate el dolor temprano",
+        "text": "No espere hasta que el dolor de muelas se vuelva severo. La atención temprana puede simplificar el tratamiento."
+      },
+      "cleaning": {
+        "title": "Planifique una limpieza rutinaria",
+        "text": "El raspado y pulido profesional ayuda a eliminar manchas y sarro que el cepillado no puede alcanzar."
+      }
+    },
+    "galleryItems": {
+      "treatment": "Tratamiento en progreso",
+      "flyer1": "Folleto de servicios de Save Dental",
+      "chair": "Sillón dental y sala de tratamiento",
+      "hours": "Días y horarios de apertura",
+      "campaign": "Folleto de campaña D-Day",
+      "patient_care": "Sesión de atención al paciente"
+    },
+    "visitChecklist": {
+      "call": "Llame o envíe un WhatsApp para confirmar disponibilidad.",
+      "symptoms": "Describa sus síntomas o el servicio que necesita.",
+      "records": "Traiga registros dentales anteriores o radiografías si están disponibles.",
+      "aftercare": "Pregunte sobre los pasos de cuidado posterior antes de salir de la clínica."
+    },
+    "faqs": {
+      "location": {
+        "question": "¿Dónde está ubicada la clínica Save Dental?",
+        "answer": "El folleto aprobado de la clínica lista a Save Dental Clinic en Dikat House, Primer Piso, Complejo, A1 No. 60 Ring Road, Ibadán, Estado de Oyo."
+      },
+      "booking": {
+        "question": "¿Cómo pueden los pacientes reservar una cita?",
+        "answer": "Los pacientes pueden llamar al +234 815 228 7675, al +234 702 598 9518, usar WhatsApp desde este sitio web o enviar un mensaje a la cuenta de Instagram @save_dental."
+      },
+      "services": {
+        "question": "¿Qué servicios dentales están disponibles?",
+        "answer": "El folleto de servicios aprobado promueve limpieza dental, empastes, terapia de conducto, blanqueamiento, implantología, radiografías, ortodoncia, carillas, coronas, puentes y tratamiento dental general."
+      },
+      "hours": {
+        "question": "¿Cuáles son los horarios de atención?",
+        "answer": "El folleto de horarios aprobado lista de lunes a viernes de 8:00am a 6:00pm, sábados de 9:00am a 5:00pm y domingos de 12mediodía a 4:00pm."
+      },
+      "whatsapp": {
+        "question": "¿Puedo reservar una limpieza dental por WhatsApp?",
+        "answer": "Sí. Use los botones de reserva específicos del servicio o el formulario de cita para abrir WhatsApp con un mensaje de reserva listo."
+      },
+      "emergencies": {
+        "question": "¿Atienden dolor dental o emergencias?",
+        "answer": "El sitio web incluye una acción de WhatsApp de ayuda urgente para dolor de muelas, hinchazón, diente roto o atención dental de emergencia."
+      },
+      "braces": {
+        "question": "¿Ofrecen brackets?",
+        "answer": "Sí. El folleto aprobado lista ortodoncia y brackets invisibles, y su Instagram también incluye contenido educativo sobre brackets autoligantes."
+      },
+      "xrays": {
+        "question": "¿Ofrecen radiografías dentales?",
+        "answer": "Sí. Las radiografías dentales están incluidas en el folleto de servicios aprobado de Save Dental."
+      },
+      "sundays": {
+        "question": "¿Está abierta la clínica los domingos?",
+        "answer": "Sí. El folleto de horarios aprobado lista los domingos de 12mediodía a 4:00pm."
+      }
+    }
+  },
+  "reviews": {
+    "title": "Testimonios de Pacientes",
+    "subtitle": "Vea lo que nuestros pacientes dicen sobre su experiencia.",
+    "verified": "Paciente Verificado",
+    "no_reviews": "Aún no hay reseñas. ¡Sea el primero en compartir su experiencia!",
+    "leave": "Dejar una Reseña",
+    "success": "¡Gracias! Su reseña ha sido enviada y está pendiente de aprobación.",
+    "name": "Nombre",
+    "rating": "Calificación",
+    "comment": "Comentario",
+    "submitting": "Enviando...",
+    "submit": "Enviar Reseña",
+    "comments": {
+      "Josephine A.": "¡Limpieza dental increíble! Equipo muy profesional y la sala de tratamiento está súper limpia. Definitivamente volveré.",
+      "Emeka O.": "Me extrajeron las muelas del juicio. ¡Prácticamente sin dolor y explicaron todo el proceso de cuidado posterior claramente!",
+      "Sarah K.": "Gran clínica en Ring Road. El personal es educado y respetan puntualmente los horarios de citas. Instalaciones muy limpias.",
+      "Oluwaseun T.": "¡Me encanta su servicio de ortodoncia! Me pusieron brackets autoligables y los seguimientos han sido muy fluidos.",
+      "David M.": "Raspado y pulido profesional. Me hicieron sentir muy relajado ya que normalmente tengo ansiedad dental.",
+      "Adebayo F.": "Empastes de alta calidad. El servicio fue rápido y los precios muy razonables. ¡Altamente recomendado!",
+      "Samaritan Joe.": "Empastes de alta calidad. El servicio fue rápido y los precios muy razonables. ¡Altamente recomendado!"
+    }
+  },
+  "chat": {
+    "tooltip": "¡Hola! ¿Cómo puedo ayudar? 👋",
+    "assistant": "Asistente Save Dental",
+    "status": "En línea • Responde al instante",
+    "placeholder": "Escribe tu mensaje…",
+    "qr": {
+      "services": "Servicios ofrecidos",
+      "hours": "Horario de atención",
+      "location": "¿Dónde están ubicados?",
+      "book": "Reservar cita",
+      "contact": "Número de contacto",
+      "whatsapp": "Escríbenos por WhatsApp",
+      "call": "Llamar a la clínica",
+      "directions": "Obtener direcciones",
+      "book_online": "Reservar en línea"
+    },
+    "reply": {
+      "welcome": "👋 ¡Hola! Bienvenido a **Save Dental Clinic**. Puedo ayudarte con nuestros servicios, horarios de atención, ubicación y reservas.\n\n¿En qué te puedo asistir hoy?",
+      "services": "🦷 Ofrecemos una gama completa de servicios dentales:\n\n• Limpieza Dental\n• Empastes\n• Terapia de Conducto\n• Blanqueamiento\n• Implantología\n• Radiografías\n• Ortodoncia\n• Carillas, Coronas y Puentes\n• Tratamiento General\n\n¿Te gustaría reservar una cita para alguno de estos?",
+      "cleaning": "✨ Nuestro servicio de **Limpieza Dental** elimina placa, sarro y manchas que el cepillado no puede alcanzar. Se recomienda cada 6 meses.\n\n¿Te gustaría reservar una sesión?",
+      "whitening": "⭐ Nuestro tratamiento de **Blanqueamiento Dental** te brinda una sonrisa más brillante y segura. Es rápido, seguro y profesional.\n\n¿Te gustaría reservar?",
+      "root_canal": "🛡️ Nuestra **Terapia de Conducto** alivia el dolor severo y salva tu diente natural. Nuestro equipo hace que el procedimiento sea lo más cómodo posible.\n\n¿Te gustaría reservar una consulta?",
+      "braces": "😁 Ofrecemos **Ortodoncia y Brackets Invisibles**. Evaluaremos tus dientes y recomendaremos la mejor opción para ti.\n\n¿Te gustaría una consulta?",
+      "implants": "🦷 Nuestro servicio de **Implantología** proporciona reemplazo dental permanente. Los implantes restauran tu sonrisa y función de masticación.\n\n¿Quieres reservar una consulta?",
+      "xray": "📷 Proporcionamos **Radiografías Dentales** para ayudar a diagnosticar problemas que no son visibles a simple vista. Esto asegura un tratamiento más seguro.",
+      "emergency": "🚨 **¿Emergencia Dental?** ¡Contáctanos de inmediato!\n\n📞 {{phone1}}\n📞 {{phone2}}\n\nO haz clic abajo para enviarnos un mensaje de WhatsApp.",
+      "hours_msg": "🕐 Nuestros horarios son:\n\n{{hours}}\n\n¡Estamos abiertos los 7 días de la semana! ¿Te gustaría reservar una cita?",
+      "location_msg": "📍 Puedes encontrarnos en:\n\n**{{address}}**\n\nSomos fáciles de encontrar en Ring Road, Ibadán. Puedes obtener direcciones vía Google Maps.",
+      "booking_msg": "📅 Puedes reservar una cita de tres maneras:\n\n1. **En línea** – Completa nuestro formulario en este sitio web\n2. **Llámanos** – {{phone1}}\n3. **WhatsApp** – Envíanos un mensaje\n\nNuestro equipo confirmará tu cita.",
+      "contact_msg": "📞 Puedes comunicarte con nosotros al:\n\n• **{{phone1}}**\n• **{{phone2}}**\n• **Email:** {{email}}\n• **Instagram:** {{instagram}}",
+      "price": "💰 Nuestros precios dependen del tratamiento específico necesario. Creemos en precios justos y transparentes y siempre explicaremos los costos antes de comenzar.\n\nPara una cotización precisa, recomendamos reservar una consulta.",
+      "family": "👨‍👩‍👧 ¡Sí! Brindamos **servicios dentales familiares** y nuestro equipo tiene experiencia con pacientes de todas las edades. Creamos un ambiente tranquilo y acogedor.",
+      "safety": "🛡️ La seguridad del paciente es nuestra prioridad. Nuestro equipo utiliza **mascarillas, guantes, gorros y barreras protectoras** durante todos los procedimientos.",
+      "instagram_msg": "📸 Síguenos en Instagram en **{{instagram}}** para actualizaciones de la clínica, consejos dentales y contenido educativo sobre nuestros tratamientos.",
+      "thanks": "😊 ¡De nada! Siempre estamos felices de ayudar. ¿Hay algo más que te gustaría saber sobre Save Dental Clinic?",
+      "bye": "👋 ¡Adiós! Esperamos verte en Save Dental Clinic. ¡Que tengas un gran día y recuerda seguir sonriendo! 😄",
+      "fallback": "🤔 No estoy seguro de haber entendido eso. Déjame conectarte con la opción correcta. También puedes llamarnos directamente."
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "sidebar": {
+        "overview": "Resumen",
+        "schedule": "Calendario",
+        "patients": "Pacientes",
+        "all_bookings": "Todas las Reservas",
+        "reviews": "Reseñas",
+        "site_settings": "Ajustes del Sitio",
+        "staff_users": "Personal",
+        "panel_title": "Panel de Admin",
+        "navigation": "Navegación",
+        "sign_out": "Cerrar Sesión"
+      },
+      "titles": {
+        "overview": "Resumen del Tablero",
+        "overview_sub": "Hoy es {{date}}",
+        "schedule": "Calendario de la Clínica",
+        "schedule_sub": "Ver y gestionar todas las citas",
+        "patients": "Directorio de Pacientes",
+        "patients_sub": "Navegar y gestionar registros de pacientes",
+        "all_bookings": "Todas las Reservas",
+        "all_bookings_sub": "Historial completo de reservas y gestión de estados",
+        "reviews": "Gestión de Reseñas",
+        "reviews_sub": "Aprobar u ocultar testimonios de pacientes",
+        "staff": "Directorio del Personal",
+        "staff_sub": "Gestionar acceso al sistema y roles",
+        "settings": "Ajustes del Sitio",
+        "settings_sub": "Actualizar info de la clínica, horas, banners y contenido"
+      },
+      "stats": {
+        "total_bookings": "Total de Reservas",
+        "pending": "Pendientes",
+        "today": "Hoy",
+        "patients": "Pacientes",
+        "staff_members": "Miembros del Personal"
+      },
+      "overview": {
+        "pending_approvals": "⚠️ Aprobaciones Pendientes ({{count}})",
+        "upcoming_confirmed": "Próximos Confirmados ({{count}})",
+        "patient": "Paciente",
+        "service_time": "Servicio y Hora",
+        "contact": "Contacto",
+        "actions": "Acciones",
+        "confirm": "Confirmar",
+        "loading": "Cargando…",
+        "no_upcoming": "No hay citas confirmadas próximas.",
+        "service": "Servicio",
+        "date_time": "Fecha y Hora",
+        "status": "Estado",
+        "mark_completed": "Marcar Completado"
+      },
+      "all_bookings": {
+        "title": "Todas las Reservas",
+        "total": "{{count}} en total",
+        "loading": "Cargando citas…",
+        "patient": "Paciente",
+        "contact": "Contacto",
+        "service_time": "Servicio y Hora",
+        "booked_on": "Reservado El",
+        "notes": "Notas",
+        "status": "Estado",
+        "actions": "Acciones",
+        "confirm": "Confirmar",
+        "mark_completed": "Marcar Completado",
+        "no_appointments": "No se encontraron citas."
+      }
+    }
+  }
+}
