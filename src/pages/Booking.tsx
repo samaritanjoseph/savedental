@@ -87,22 +87,32 @@ export function Booking() {
     return d.toISOString().split("T")[0];
   })();
 
+  const [lastBookingData, setLastBookingData] = React.useState<{
+    name: string;
+    service: string;
+    date: string;
+    time: string;
+    phone: string;
+  } | null>(null);
+
   async function handleBookingSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
-    setSubmitSuccess(false);
 
     const formData = new FormData(event.currentTarget);
-    const bookingData = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      service: formData.get("service"),
-      date: formData.get("date"),
-      time: selectedTime,
-      notes: formData.get("message"),
-    };
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const service = String(formData.get("service") || "").trim();
+    const date = String(formData.get("date") || "").trim();
+    const time = selectedTime || String(formData.get("time") || "").trim();
+    const notes = String(formData.get("message") || "").trim();
+
+    const bookingData = { name, email, phone, service, date, time, notes };
+    setLastBookingData({ name, service, date, time, phone });
+
+    const waMsg = `Hello Save Dental Clinic, I would like to book an appointment:\n\n👤 *Patient:* ${name}\n📞 *Phone:* ${phone}\n✉️ *Email:* ${email}\n🦷 *Service:* ${service}\n📅 *Date:* ${date}\n⏰ *Time:* ${time}${notes ? `\n📝 *Notes:* ${notes}` : ""}`;
 
     try {
       const response = await fetch(`${API_BASE}/api/bookings`, {
@@ -115,16 +125,15 @@ export function Booking() {
         setSubmitSuccess(true);
         (event.target as HTMLFormElement).reset();
       } else {
-        const errorData = await response.json().catch(() => null);
-        const errorMsg =
-          errorData?.error ||
-          (Array.isArray(errorData?.errors) ? errorData.errors.map((e: any) => e.msg).join(", ") : null) ||
-          "Something went wrong. Please try again.";
-        alert(errorMsg);
+        // Fallback to WhatsApp if API returned an error
+        window.open(whatsappLink(waMsg), "_blank");
+        setSubmitSuccess(true);
       }
     } catch (error) {
-      console.error("Booking error:", error);
-      alert(`Failed to connect to the server (${API_BASE}). Please make sure the backend server is running.`);
+      console.log("Using instant WhatsApp dispatch fallback:", error);
+      // Seamless static fallback: open WhatsApp directly with booking details
+      window.open(whatsappLink(waMsg), "_blank");
+      setSubmitSuccess(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -313,9 +322,20 @@ export function Booking() {
                       <li>{t("booking.success_step3", { defaultValue: "Our team may call you if we need to adjust the time." })}</li>
                     </ul>
                   </div>
-                  <button className="btn primary outline" type="button" onClick={() => setSubmitSuccess(false)}>
-                    {t("booking.book_another", { defaultValue: "Book Another Appointment" })}
-                  </button>
+                  <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center", marginTop: "16px" }}>
+                    <a
+                      className="btn primary"
+                      style={{ background: "#25d366", borderColor: "#25d366", display: "inline-flex", alignItems: "center", gap: "8px" }}
+                      href={whatsappLink(`Hello Save Dental Clinic, I just submitted an appointment request for ${lastBookingData?.service || 'dental care'}.`)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <MessageCircle size={18} /> Chat with us on WhatsApp
+                    </a>
+                    <button className="btn primary outline" type="button" onClick={() => setSubmitSuccess(false)}>
+                      {t("booking.book_another", { defaultValue: "Book Another Appointment" })}
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <>
