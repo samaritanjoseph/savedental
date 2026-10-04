@@ -3,6 +3,7 @@ import { AnimatedCounter } from "../components/AnimatedCounter";
 import { ArrowRight, Camera, CheckCircle2, MessageCircle, Phone, ShieldCheck, Sparkles } from "lucide-react";
 import { ADDRESS, highlights, INSTAGRAM_URL, PHONE_DISPLAY, PHONE_TEL, getOpenStatus, whatsappLink } from "../data";
 
+
 import { Services } from "./Services";
 import { About } from "./About";
 import { Experience } from "./Experience";
@@ -29,6 +30,8 @@ export function Home() {
       <section className="hero section-pad">
         <div className="container hero-grid">
           <div className="hero-copy">
+
+
             <div className="eyebrow">
               <span /> {t("home.eyebrow")}
             </div>
@@ -48,17 +51,24 @@ export function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <MessageCircle size={18} /> {t("home.whatsapp_booking")}
+                <MessageCircle size={18} />
+                <span className="btn-label-full">{t("home.whatsapp_booking")}</span>
+                <span className="btn-label-short">WhatsApp</span>
               </a>
               <a
-                className="btn green-btn"
+                className="btn green-btn btn-instagram"
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noreferrer"
               >
-                <Camera size={18} /> {t("home.view_instagram")}
+                <Camera size={18} />
+                <span className="btn-label-full">{t("home.view_instagram")}</span>
+                <span className="btn-label-short">Instagram</span>
               </a>
             </div>
+
+
+
             <div className="trust-row" aria-label="Clinic highlights">
               {highlights.map((item) => (
                 <span key={item.id}>

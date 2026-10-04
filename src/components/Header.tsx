@@ -42,6 +42,7 @@ export function Header() {
       )}
     <header className="site-header">
       <nav className="nav container" aria-label="Main navigation">
+        {/* Logo — left side */}
         <Link to="/" className="brand" aria-label="Save Dental Clinic home" onClick={() => setMenuOpen(false)}>
           <span className="brand-mark image-mark">
             <img src="/images/save-dental-profile.jpg" alt="Save Dental Clinic logo" className="logo-anim" />
@@ -52,16 +53,7 @@ export function Header() {
           </span>
         </Link>
 
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((isOpen) => !isOpen)}
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-
+        {/* Desktop nav links — centre */}
         <div className={`nav-panel ${menuOpen ? "is-open" : ""}`}>
           {navLinks.map(([label, to]) => (
             <NavLink
@@ -73,26 +65,37 @@ export function Header() {
               {t(label)}
             </NavLink>
           ))}
-          <div className="header-controls">
-            <select
-              className="lang-switcher"
-              value={i18n.language}
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
-            >
-              <option value="en">EN</option>
-              <option value="es">ES</option>
-              <option value="fr">FR</option>
-            </select>
+        </div>
 
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-          </div>
-
-          <Link to="/booking" className="nav-cta" onClick={() => setMenuOpen(false)}>
+        {/* Right-side controls — inline with logo on mobile, far right edge on desktop */}
+        <div className="nav-right-controls" style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <select
+            value={i18n.language}
+            onChange={(e) => i18n.changeLanguage(e.target.value)}
+            style={{ background: 'transparent', color: 'var(--ink)', border: '1px solid var(--line)', padding: '2px 4px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.75rem', height: '26px' }}
+          >
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+            <option value="fr">FR</option>
+          </select>
+          <button onClick={toggleTheme} aria-label="Toggle theme" style={{ background: 'transparent', color: 'var(--ink)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '2px' }}>
+            {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
+          </button>
+          <Link to="/booking" className="btn primary header-book-btn" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             {t("nav.book")}
           </Link>
         </div>
+
+        {/* Mobile hamburger — pushed to far right by margin-left:auto in CSS */}
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((isOpen) => !isOpen)}
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </nav>
     </header>
     </>

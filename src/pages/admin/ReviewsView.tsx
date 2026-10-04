@@ -1,93 +1,158 @@
+import { useState, useEffect, useCallback } from 'react';
+import { Star, CheckCircle, XCircle, Trash2, RefreshCw } from 'lucide-react';
 import { API_BASE } from '../../api';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { Trash2, CheckCircle, XCircle } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+
+interface Review {
+  id: number;
+  name: string;
+  rating: number;
+  comment: string;
+  is_approved: number;
+  created_at: string;
+}
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div style={{ display: 'flex', gap: '2px' }}>
+      {[1, 2, 3, 4, 5].map(n => (
+        <Star key={n} size={14} fill={n <= rating ? '#f59e0b' : 'none'} color={n <= rating ? '#f59e0b' : 'var(--muted)'} />
+      ))}
+    </div>
+  );
+}
 
 export function ReviewsView({ token }: { token: string }) {
-  const { t } = useTranslation();
-  const queryClient = useQueryClient();
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState<'All' | 'Approved' | 'Pending'>('All');
+  const [actionId, setActionId] = useState<number | null>(null);
 
-  const { data: reviews, isLoading } = useQuery({
-    queryKey: ['admin-reviews'],
-    queryFn: async () => {
+  const fetchReviews = useCallback(async () => {
+    setLoading(true);
+    try {
       const res = await fetch(`${API_BASE}/api/admin/reviews`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
-      return res.json();
-    }
-  });
+      const data = await res.json();
+      setReviews(Array.isArray(data) ? data : []);
+    } catch { setReviews([]); }
+    finally { setLoading(false); }
+  }, [token]);
 
-  const toggleApprovalMutation = useMutation({
-    mutationFn: async ({ id, is_approved }: { id: number, is_approved: boolean }) => {
-      await fetch(`${API_BASE}/api/reviews/${id}`, {
+  useEffect(() => { fetchReviews(); }, [fetchReviews]);
+
+  async function toggleApprove(review: Review) {
+    setActionId(review.id);
+    try {
+      await fetch(`${API_BASE}/api/reviews/${review.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ is_approved })
+        body: JSON.stringify({ is_approved: review.is_approved ? 0 : 1 }),
       });
-    },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-reviews'] })
-  });
+      setReviews(prev => prev.map(r => r.id === review.id ? { ...r, is_approved: r.is_approved ? 0 : 1 } : r));
+    } finally { setActionId(null); }
+  }
 
-  const deleteMutation = useMutation({
-    mutationFn: async (id: number) => {
+  async function deleteReview(id: number) {
+    if (!confirm('Delete this review permanently?')) return;
+    setActionId(id);
+    try {
       await fetch(`${API_BASE}/api/reviews/${id}`, {
         method: 'DELETE',
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}` },
       });
-    },
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-reviews'] })
+      setReviews(prev => prev.filter(r => r.id !== id));
+    } finally { setActionId(null); }
+  }
+
+  const filtered = reviews.filter(r => {
+    if (filter === 'Approved') return r.is_approved === 1;
+    if (filter === 'Pending') return r.is_approved === 0;
+    return true;
   });
 
+  const pendingCount = reviews.filter(r => r.is_approved === 0).length;
+
   return (
-    <div className="admin-panel">
-      <div className="admin-panel-header">
-        <h2>{t("admin.dashboard.reviews.title", { defaultValue: "Reviews & Testimonials" })}</h2>
+    <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '12px' }}>
+        <h2 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 800, color: 'var(--ink)', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <Star size={22} /> Reviews
+          {pendingCount > 0 && (
+            <span style={{ background: '#f59e0b', color: '#fff', fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: '20px' }}>
+              {pendingCount} pending
+            </span>
+          )}
+        </h2>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          {(['All', 'Pending', 'Approved'] as const).map(f => (
+            <button key={f} onClick={() => setFilter(f)} style={{ padding: '7px 16px', borderRadius: '20px', border: '1.5px solid var(--line)', background: filter === f ? 'var(--primary)' : 'var(--surface-soft)', color: filter === f ? '#fff' : 'var(--ink)', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer' }}>
+              {f}
+            </button>
+          ))}
+          <button onClick={fetchReviews} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '7px 14px', background: 'var(--surface-soft)', border: '1.5px solid var(--line)', borderRadius: '10px', color: 'var(--ink)', fontSize: '0.82rem', cursor: 'pointer' }}>
+            <RefreshCw size={13} /> Refresh
+          </button>
+        </div>
       </div>
-      <div style={{ padding: '20px' }}>
-        {isLoading ? <p>{t("admin.dashboard.overview.loading", { defaultValue: "Loadingâ€¦" })}</p> : (
-          <table className="admin-table">
-            <thead>
-              <tr>
-                <th>{t("admin.dashboard.patients.name", { defaultValue: "Name" })}</th>
-                <th>{t("admin.dashboard.reviews.rating", { defaultValue: "Rating" })}</th>
-                <th>{t("admin.dashboard.reviews.comment", { defaultValue: "Comment" })}</th>
-                <th>{t("admin.dashboard.overview.status", { defaultValue: "Status" })}</th>
-                <th>{t("admin.dashboard.patients.actions", { defaultValue: "Actions" })}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {reviews?.map((review: any) => (
-                <tr key={review.id}>
-                  <td><strong>{review.name}</strong></td>
-                  <td>{review.rating} / 5</td>
-                  <td style={{ maxWidth: '300px' }}>{review.comment}</td>
-                  <td>
-                    <span className={`status-badge ${review.is_approved ? 'status-confirmed' : 'status-pending'}`}>
-                      {review.is_approved ? t("admin.dashboard.reviews.approved", { defaultValue: "Approved" }) : t("admin.dashboard.reviews.pending", { defaultValue: "Pending" })}
-                    </span>
-                  </td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '8px' }}>
-                      <button 
-                        onClick={() => toggleApprovalMutation.mutate({ id: review.id, is_approved: !review.is_approved })}
-                        className={`action-btn ${review.is_approved ? 'cancel' : 'confirm'}`}
-                      >
-                        {review.is_approved ? <><XCircle size={14}/> {t("admin.dashboard.reviews.hide", { defaultValue: "Hide" })}</> : <><CheckCircle size={14}/> {t("admin.dashboard.reviews.approve", { defaultValue: "Approve" })}</>}
-                      </button>
-                      <button onClick={() => deleteMutation.mutate(review.id)} className="action-btn cancel" title={t("admin.dashboard.users.delete", { defaultValue: "Delete" })}>
-                        <Trash2 size={16} />
-                      </button>
+
+      {loading ? (
+        <div style={{ textAlign: 'center', padding: '60px', color: 'var(--muted)' }}>Loading reviews…</div>
+      ) : filtered.length === 0 ? (
+        <div style={{ textAlign: 'center', padding: '60px', color: 'var(--muted)' }}>No reviews found</div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {filtered.map(review => {
+            const approved = review.is_approved === 1;
+            const busy = actionId === review.id;
+            return (
+              <div key={review.id} style={{ background: 'var(--surface)', border: `1px solid ${approved ? 'rgba(7,134,63,0.25)' : 'var(--line)'}`, borderRadius: '16px', padding: '18px 20px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+                {/* Avatar */}
+                <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: approved ? 'rgba(7,134,63,0.15)' : 'var(--surface-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '1.1rem', fontWeight: 800, color: 'var(--primary)' }}>
+                  {review.name.charAt(0).toUpperCase()}
+                </div>
+                {/* Content */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '8px', marginBottom: '6px' }}>
+                    <div>
+                      <span style={{ fontWeight: 700, color: 'var(--ink)', marginRight: '10px' }}>{review.name}</span>
+                      <StarRating rating={review.rating} />
                     </div>
-                  </td>
-                </tr>
-              ))}
-              {reviews?.length === 0 && (
-                <tr><td colSpan={5} style={{ textAlign: 'center', padding: '20px' }}>{t("admin.dashboard.reviews.no_reviews", { defaultValue: "No reviews yet." })}</td></tr>
-              )}
-            </tbody>
-          </table>
-        )}
-      </div>
+                    <span style={{
+                      padding: '3px 10px', borderRadius: '20px', fontSize: '0.72rem', fontWeight: 700,
+                      background: approved ? 'rgba(7,134,63,0.12)' : 'rgba(234,179,8,0.15)',
+                      color: approved ? '#07863f' : '#b45309'
+                    }}>
+                      {approved ? '✓ Approved' : '⏳ Pending'}
+                    </span>
+                  </div>
+                  <p style={{ margin: '0 0 8px', color: 'var(--ink)', fontSize: '0.9rem', lineHeight: 1.5 }}>{review.comment}</p>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>{new Date(review.created_at).toLocaleDateString()}</div>
+                </div>
+                {/* Actions */}
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
+                  <button
+                    onClick={() => toggleApprove(review)}
+                    disabled={busy}
+                    title={approved ? 'Remove approval' : 'Approve'}
+                    style={{ padding: '8px 14px', borderRadius: '10px', border: 'none', cursor: busy ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', fontWeight: 600, background: approved ? 'rgba(239,68,68,0.1)' : 'rgba(7,134,63,0.12)', color: approved ? '#dc2626' : '#07863f' }}
+                  >
+                    {approved ? <><XCircle size={14} /> Unapprove</> : <><CheckCircle size={14} /> Approve</>}
+                  </button>
+                  <button
+                    onClick={() => deleteReview(review.id)}
+                    disabled={busy}
+                    title="Delete"
+                    style={{ padding: '8px', borderRadius: '10px', border: 'none', cursor: busy ? 'not-allowed' : 'pointer', background: 'rgba(239,68,68,0.1)', color: '#dc2626', display: 'flex', alignItems: 'center' }}
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

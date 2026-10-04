@@ -1,157 +1,130 @@
+import React, { useState } from 'react';
+import { Lock, Eye, EyeOff, Stethoscope } from 'lucide-react';
 import { API_BASE } from '../api';
-import React, { useState } from "react";
-import { Lock, Mail, ArrowRight, ArrowLeft, Key } from "lucide-react";
 
-export function Login({ onLogin }: { onLogin: (token: string) => void }) {
-  const [mode, setMode] = useState<"login" | "forgot">("login");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+interface LoginProps {
+  onLogin: (token: string) => void;
+}
+
+export function Login({ onLogin }: LoginProps) {
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  async function handleLogin(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setError('');
     setLoading(true);
-    setError("");
-
     try {
-      const response = await fetch(`${API_BASE}/api/auth/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+      const res = await fetch(`${API_BASE}/api/admin/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
       });
-
-      const data = await response.json();
-      if (response.ok) {
-        onLogin(data.token);
-      } else {
-        setError(data.error || "Login failed");
-      }
-    } catch (err) {
-      setError("Failed to connect to the server.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  async function handleForgot(e: React.FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setSuccess("");
-
-    try {
-      const response = await fetch(`${API_BASE}/api/auth/forgot-password`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      
-      const data = await response.json();
-      if (response.ok) {
-        setSuccess("A temporary password has been sent to your email.");
-        setTimeout(() => setMode("login"), 4000);
-      } else {
-        setError(data.error || "Failed to reset password.");
-      }
-    } catch (err) {
-      setError("Failed to connect to the server.");
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+      onLogin(data.token);
+    } catch (err: any) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <main className="admin-login-page section-pad" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(circle at top left, rgba(7, 134, 63, 0.1), transparent 400px)' }}>
-      <div className="container" style={{ maxWidth: '440px', width: '100%' }}>
-        
-        <div style={{ background: '#fff', borderRadius: '24px', padding: '40px 32px', boxShadow: '0 24px 60px rgba(0, 95, 45, 0.08)', border: '1px solid var(--line)' }}>
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-            <div style={{ position: 'relative', width: '80px', height: '80px', margin: '0 auto 16px' }}>
-              <img src="/images/save-dental-profile.jpg" alt="Save Dental Clinic" style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--primary)', boxShadow: '0 12px 28px rgba(7, 134, 63, 0.25)' }} />
-              <div style={{ position: 'absolute', bottom: 0, right: 0, width: '26px', height: '26px', background: 'var(--primary)', borderRadius: '50%', border: '2px solid #fff', display: 'grid', placeItems: 'center', color: '#fff' }}>
-                {mode === "login" ? <Lock size={13} /> : <Key size={13} />}
-              </div>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'var(--bg)',
+      padding: '20px',
+    }}>
+      <div style={{
+        width: '100%',
+        maxWidth: '420px',
+        background: 'var(--surface)',
+        borderRadius: '24px',
+        padding: '40px',
+        border: '1px solid var(--line)',
+        boxShadow: 'var(--shadow)',
+      }}>
+        {/* Logo */}
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div style={{
+            width: '64px', height: '64px', borderRadius: '50%',
+            background: 'var(--primary)', display: 'flex',
+            alignItems: 'center', justifyContent: 'center',
+            margin: '0 auto 16px',
+          }}>
+            <Stethoscope size={30} color="#fff" />
+          </div>
+          <h1 style={{ margin: '0 0 4px', fontSize: '1.5rem', fontWeight: 800, color: 'var(--ink)' }}>
+            Admin Access
+          </h1>
+          <p style={{ margin: 0, color: 'var(--muted)', fontSize: '0.9rem' }}>
+            Save Dental Clinic — Staff Portal
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          {/* Password */}
+          <div style={{ marginBottom: '20px' }}>
+            <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, color: 'var(--ink)', marginBottom: '8px' }}>
+              Admin Password
+            </label>
+            <div style={{ position: 'relative' }}>
+              <Lock size={16} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: 'var(--muted)' }} />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Enter admin password"
+                required
+                autoFocus
+                style={{
+                  width: '100%', padding: '12px 44px', boxSizing: 'border-box',
+                  border: error ? '1.5px solid #ef4444' : '1.5px solid var(--line)',
+                  borderRadius: '12px', background: 'var(--surface-soft)',
+                  color: 'var(--ink)', fontSize: '1rem', outline: 'none',
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(p => !p)}
+                style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--muted)', padding: '4px' }}
+              >
+                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+              </button>
             </div>
-            <h2 style={{ fontSize: '1.8rem', marginBottom: '4px', letterSpacing: '-0.03em' }}>
-              {mode === "login" ? "Welcome Back" : "Reset Password"}
-            </h2>
-            <p style={{ color: 'var(--muted)', fontSize: '0.9rem', margin: 0 }}>
-              {mode === "login" ? "Save Dental Clinic — Staff Portal" : "Enter your email to receive a temporary password."}
-            </p>
           </div>
 
-          {error && <div style={{ background: '#fef2f2', color: '#ef4444', padding: '12px 16px', borderRadius: '12px', fontSize: '0.9rem', marginBottom: '20px', border: '1px solid #fca5a5' }}>{error}</div>}
-          {success && <div style={{ background: '#f0fdf4', color: '#16a34a', padding: '12px 16px', borderRadius: '12px', fontSize: '0.9rem', marginBottom: '20px', border: '1px solid #86efac' }}>{success}</div>}
-
-          {mode === "login" ? (
-            <form onSubmit={handleLogin} style={{ display: 'grid', gap: '20px' }}>
-              <label style={{ display: 'grid', gap: '8px', fontSize: '0.9rem', fontWeight: 600 }}>
-                Email Address
-                <div style={{ position: 'relative' }}>
-                  <Mail size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#9ca3af' }} />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    style={{ width: '100%', padding: '12px 14px 12px 42px', borderRadius: '12px', border: '1px solid var(--line)', outline: 'none', background: '#f9fafb', transition: 'border-color 0.2s' }}
-                    onFocus={(e) => e.target.style.borderColor = 'var(--primary)'}
-                    onBlur={(e) => e.target.style.borderColor = 'var(--line)'}
-                  />
-                </div>
-              </label>
-              <label style={{ display: 'grid', gap: '8px', fontSize: '0.9rem', fontWeight: 600 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  Password
-                  <button type="button" onClick={() => { setMode("forgot"); setError(""); setSuccess(""); }} style={{ background: 'none', border: 'none', color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', padding: 0 }}>Forgot?</button>
-                </div>
-                <div style={{ position: 'relative' }}>
-                  <Lock size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#9ca3af' }} />
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    style={{ width: '100%', padding: '12px 14px 12px 42px', borderRadius: '12px', border: '1px solid var(--line)', outline: 'none', background: '#f9fafb', transition: 'border-color 0.2s' }}
-                    onFocus={(e) => e.target.style.borderColor = 'var(--primary)'}
-                    onBlur={(e) => e.target.style.borderColor = 'var(--line)'}
-                  />
-                </div>
-              </label>
-              <button type="submit" disabled={loading} style={{ background: 'var(--primary)', color: '#fff', padding: '14px', borderRadius: '12px', fontSize: '1rem', fontWeight: 700, marginTop: '8px', cursor: loading ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', border: 'none', transition: 'transform 0.2s, box-shadow 0.2s', boxShadow: '0 8px 20px rgba(7, 134, 63, 0.25)' }} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-                {loading ? "Signing in..." : <>Sign In <ArrowRight size={18} /></>}
-              </button>
-            </form>
-          ) : (
-            <form onSubmit={handleForgot} style={{ display: 'grid', gap: '20px' }}>
-              <label style={{ display: 'grid', gap: '8px', fontSize: '0.9rem', fontWeight: 600 }}>
-                Email Address
-                <div style={{ position: 'relative' }}>
-                  <Mail size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#9ca3af' }} />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    style={{ width: '100%', padding: '12px 14px 12px 42px', borderRadius: '12px', border: '1px solid var(--line)', outline: 'none', background: '#f9fafb', transition: 'border-color 0.2s' }}
-                    onFocus={(e) => e.target.style.borderColor = 'var(--primary)'}
-                    onBlur={(e) => e.target.style.borderColor = 'var(--line)'}
-                  />
-                </div>
-              </label>
-              <button type="submit" disabled={loading} style={{ background: 'var(--primary)', color: '#fff', padding: '14px', borderRadius: '12px', fontSize: '1rem', fontWeight: 700, marginTop: '8px', cursor: loading ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', border: 'none', transition: 'transform 0.2s, box-shadow 0.2s', boxShadow: '0 8px 20px rgba(7, 134, 63, 0.25)' }} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-                {loading ? "Sending..." : "Send Temporary Password"}
-              </button>
-              <button type="button" onClick={() => { setMode("login"); setError(""); setSuccess(""); }} style={{ background: 'none', border: 'none', color: 'var(--muted)', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginTop: '4px' }}>
-                <ArrowLeft size={16} /> Back to Sign In
-              </button>
-            </form>
+          {error && (
+            <div style={{ padding: '10px 14px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '10px', color: '#ef4444', fontSize: '0.875rem', marginBottom: '16px' }}>
+              ❌ {error}
+            </div>
           )}
 
-        </div>
+          <button
+            type="submit"
+            disabled={loading || !password}
+            style={{
+              width: '100%', padding: '14px', border: 'none', borderRadius: '12px',
+              background: loading || !password ? 'var(--muted)' : 'var(--primary)',
+              color: '#fff', fontSize: '1rem', fontWeight: 700,
+              cursor: loading || !password ? 'not-allowed' : 'pointer',
+              transition: 'background 200ms',
+            }}
+          >
+            {loading ? 'Signing in…' : 'Sign In'}
+          </button>
+        </form>
+
+        <p style={{ textAlign: 'center', marginTop: '24px', fontSize: '0.8rem', color: 'var(--muted)' }}>
+          🔒 This page is not linked publicly
+        </p>
       </div>
-    </main>
+    </div>
   );
 }

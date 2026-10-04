@@ -1,6 +1,6 @@
-import React from "react";
+import { useState } from 'react';
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MapPin, Phone } from "lucide-react";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PHONE_TEL, MAPS_URL } from "./data";
@@ -28,71 +28,63 @@ import { Gallery } from "./pages/Gallery";
 import { Login } from "./pages/Login";
 import { AdminDashboard } from "./pages/AdminDashboard";
 
-function App() {
-  const [token, setToken] = React.useState<string | null>(localStorage.getItem("adminToken"));
+// ── Public site layout (with header, footer, chat widget) ──
+function PublicLayout() {
+  return (
+    <>
+      <ScrollToTop />
+      <Header />
+      <main id="top">
+        <Routes>
+          <Route path="/"           element={<Home />} />
+          <Route path="/services"   element={<Services />} />
+          <Route path="/about"      element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/booking"    element={<Booking />} />
+          <Route path="/faq"        element={<FAQ />} />
+          <Route path="/contact"    element={<Contact />} />
+          <Route path="/gallery"    element={<Gallery />} />
+        </Routes>
+      </main>
+      <LiveChat />
+      <div className="mobile-action-bar" aria-label="Quick mobile actions">
+        <a href={`tel:${PHONE_TEL}`}><Phone size={18} /> Call</a>
+        <a href="/booking"><MapPin size={18} /> Book Now</a>
+        <a href={MAPS_URL} target="_blank" rel="noreferrer"><MapPin size={18} /> Directions</a>
+      </div>
+      <Footer />
+    </>
+  );
+}
 
-  const handleLogin = (newToken: string) => {
-    localStorage.setItem("adminToken", newToken);
-    setToken(newToken);
-  };
+// ── Admin area (no header/footer/chat) ──
+function AdminArea() {
+  const [token, setToken] = useState<string | null>(() => localStorage.getItem('admin_token'));
 
-  const handleLogout = () => {
-    localStorage.removeItem("adminToken");
+  function handleLogin(t: string) {
+    localStorage.setItem('admin_token', t);
+    setToken(t);
+  }
+
+  function handleLogout() {
+    localStorage.removeItem('admin_token');
     setToken(null);
-  };
+  }
 
+  if (!token) return <Login onLogin={handleLogin} />;
+  return <AdminDashboard token={token} onLogout={handleLogout} />;
+}
+
+function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
       <Routes>
-        {/* ── Standalone admin / login routes (no site header/footer) ── */}
-        <Route
-          path="/login"
-          element={token ? <Navigate to="/admin" /> : <Login onLogin={handleLogin} />}
-        />
-        <Route
-          path="/admin"
-          element={token ? <AdminDashboard token={token} onLogout={handleLogout} /> : <Navigate to="/login" />}
-        />
+        {/* Admin routes — no public header/footer */}
+        <Route path="/admin/login" element={<AdminArea />} />
+        <Route path="/admin"       element={<AdminArea />} />
 
-        {/* ── Public site routes (with header / footer / floating buttons) ── */}
-        <Route
-          path="*"
-          element={
-            <>
-              <Header />
-              <main id="top">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/experience" element={<Experience />} />
-                  <Route path="/booking" element={<Booking />} />
-                  <Route path="/faq" element={<FAQ />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/gallery" element={<Gallery />} />
-                </Routes>
-              </main>
-
-              {/* Live Chat Widget – replaces floating WhatsApp */}
-              <LiveChat />
-
-              <div className="mobile-action-bar" aria-label="Quick mobile actions">
-                <a href={`tel:${PHONE_TEL}`}>
-                  <Phone size={18} /> Call
-                </a>
-                <a href="/booking">
-                  <MapPin size={18} /> Book Now
-                </a>
-                <a href={MAPS_URL} target="_blank" rel="noreferrer">
-                  <MapPin size={18} /> Directions
-                </a>
-              </div>
-
-              <Footer />
-            </>
-          }
-        />
+        {/* All public routes */}
+        <Route path="/*" element={<PublicLayout />} />
       </Routes>
     </BrowserRouter>
   );

@@ -321,8 +321,13 @@ p {
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
     margin-bottom: 32px;
+    align-items: stretch;
+}
+
+.hero-actions > a {
+    white-space: nowrap;
 }
 
 .btn {
@@ -399,6 +404,14 @@ p {
 
 .trust-row svg {
     color: var(--primary);
+}
+
+/* ── Hero button responsive label helpers ── */
+.btn-label-short {
+    display: none;
+}
+.btn-label-full {
+    display: inline;
 }
 
 .hero-card {
@@ -1568,7 +1581,7 @@ p {
 
 .method-card.active {
     border-color: var(--primary);
-    background: #f0fdf4;
+    background: var(--surface-soft);
     box-shadow: 0 16px 40px rgba(7, 134, 63, 0.15);
 }
 
@@ -1579,7 +1592,7 @@ p {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #e6f6ec;
+    background: rgba(7, 134, 63, 0.12);
     color: var(--primary);
     margin-bottom: 16px;
     transition: all 250ms ease;
@@ -1592,7 +1605,7 @@ p {
 
 .method-icon.wa {
     color: #25d366;
-    background: #e0f9ea;
+    background: rgba(37, 211, 102, 0.12);
 }
 
 .method-card.active .method-icon.wa {
@@ -1623,7 +1636,8 @@ p {
 
 @media (max-width: 900px) {
     .pro-booking-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -1654,7 +1668,7 @@ p {
     width: 52px;
     height: 52px;
     border-radius: 16px;
-    background: #f0fdf4;
+    background: var(--surface-soft);
     color: var(--primary);
     flex-shrink: 0;
 }
@@ -1687,7 +1701,7 @@ p {
     justify-content: space-between;
     padding: 16px 20px;
     border-radius: 16px;
-    background: #f9fafb;
+    background: var(--surface-soft);
     border: 1.5px solid var(--line);
     text-decoration: none;
     transition: all 200ms ease;
@@ -1695,7 +1709,7 @@ p {
 
 .pro-phone-link:hover {
     border-color: var(--primary);
-    background: #f0fdf4;
+    background: var(--surface);
     transform: translateY(-2px);
 }
 
@@ -1821,11 +1835,11 @@ p {
 
 /* ── Advanced Form Styles ────────── */
 .pro-form.advanced .form-section {
-    background: #fdfdfd;
+    background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 20px;
     padding: 24px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
 }
 
 .pro-form.advanced .section-title {
@@ -1880,7 +1894,7 @@ p {
     font-size: 0.95rem;
     font-family: inherit;
     transition: all 200ms ease;
-    background: #fafafa;
+    background: var(--surface-soft);
     color: var(--ink);
     outline: none;
 }
@@ -1981,13 +1995,13 @@ p {
     width: 100%;
     border: 1.5px solid var(--line);
     border-radius: 14px;
-    background: #fafafa;
+    background: var(--surface-soft);
     color: var(--ink);
     padding: 14px 15px;
     font-size: 0.95rem;
     outline: none;
     resize: vertical;
-    transition: border-color 200ms, box-shadow 200ms;
+    transition: border-color 200ms, box-shadow 200ms, background 200ms;
 }
 
 .booking-form input:focus,
@@ -2680,9 +2694,33 @@ p {
         width: min(100% - 28px, 1120px);
     }
 
+    /* ── Header: hamburger far right, controls inline with logo ── */
+    .nav-right-controls {
+        display: flex !important;
+        align-items: center;
+        gap: 6px;
+        margin-left: 0 !important;
+        flex-shrink: 0;
+    }
+
+    .nav-right-controls .header-book-btn {
+        padding: 5px 10px !important;
+        font-size: 0.7rem !important;
+        min-height: 28px !important;
+        border-radius: 8px !important;
+    }
+
     .menu-toggle {
         display: inline-grid;
         place-items: center;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    /* Hide duplicate homepage utility bars */
+    .mobile-utility-bar,
+    .hero-utility-bar {
+        display: none;
     }
 
     .nav-panel {
@@ -2740,6 +2778,60 @@ p {
         grid-template-columns: 1fr;
     }
 
+    /* ── Hero action buttons: Call full-width on top, WA + IG side-by-side below ── */
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    /* First button (Call) — full width, prominent */
+    .hero-actions > a:first-child {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* WhatsApp + Instagram side-by-side */
+    .hero-actions > a:not(:first-child) {
+        flex: 1 1 calc(50% - 5px);
+        justify-content: center;
+        min-width: 0;
+        font-size: 0.88rem;
+        padding: 0 12px;
+    }
+
+    /* Group the two secondary buttons into one row */
+    .hero-actions::after {
+        content: none;
+    }
+
+    /* Override flex-direction so the secondary pair sits in a row */
+    .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .hero-actions > a:first-child {
+        flex: 0 0 100%;
+    }
+
+    .hero-actions > a:not(:first-child) {
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 0.82rem;
+        padding: 0 10px;
+        gap: 6px;
+    }
+
+    /* Switch to short labels inside hero on mobile */
+    .hero-actions .btn-label-full { display: none; }
+    .hero-actions .btn-label-short { display: inline; }
+
+    /* Also shrink the Call button text a little if needed */
+    .hero-actions > a:first-child {
+        font-size: 0.88rem;
+        justify-content: center;
+    }
     .proof-grid,
     .services-slider-container,
     .promise-grid,
@@ -2748,7 +2840,8 @@ p {
     .gallery-wall,
     .service-intro-grid,
     .tips-photo-row,
-    .safety-photo-band {
+    .safety-photo-band,
+    .services-grid {
         grid-template-columns: 1fr;
     }
 
@@ -2763,6 +2856,7 @@ p {
         justify-content: center;
     }
 
+    /* ── Booking form mobile fixes ── */
     .booking-form,
     .social-card,
     .emergency-card,
@@ -2771,6 +2865,108 @@ p {
         padding: 22px;
         border-radius: 24px;
     }
+
+    /* Method cards: horizontal compact layout */
+    .booking-method-selector {
+        gap: 10px;
+        margin: 20px auto 0;
+    }
+
+    .method-card {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .method-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        margin-bottom: 0;
+    }
+
+    .method-card h3 { font-size: 0.95rem; margin-bottom: 2px; }
+    .method-card p  { font-size: 0.78rem; }
+
+    /* Form wrapper */
+    .pro-booking-form-wrapper {
+        padding: 18px !important;
+        border-radius: 18px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .pro-form-header h3 { font-size: 1.15rem; }
+
+    /* Stats Grid full-width cards */
+    .proof-grid div {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .pro-form.advanced .form-section {
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    /* Stack 2-col form rows to 1-col */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Fix input text visibility: flex:1 + min-width:0 prevents clipping */
+    .input-group {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .input-wrapper {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .input-wrapper input,
+    .input-wrapper select,
+    .input-wrapper textarea {
+        flex: 1;
+        min-width: 0;
+        width: 100%;
+        padding: 13px 12px 13px 42px;
+        font-size: 1rem; /* prevents iOS auto-zoom */
+        box-sizing: border-box;
+    }
+
+    .pro-submit-btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    /* Emergency card stack */
+    .emergency-card {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+        padding: 20px 16px;
+    }
+
+    .emergency-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .emergency-actions a {
+        justify-content: center;
+    }
+
 
     .map-grid {
         grid-template-columns: 1fr;
@@ -3184,11 +3380,120 @@ p {
     .admin-stats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 640px) {
-    .admin-stats-grid { grid-template-columns: 1fr; }
-    .admin-sidebar { width: 220px; }
-    .admin-content { padding: 0 16px 40px; }
-    .admin-topbar { padding: 16px 16px 0; }
+/* ─ Admin Mobile Bottom Nav ─ */
+.admin-mobile-nav {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* Hide the desktop sidebar */
+    .admin-sidebar {
+        display: none;
+    }
+
+    /* Full width main area */
+    .admin-shell {
+        flex-direction: column;
+    }
+
+    .admin-main {
+        padding-bottom: 80px; /* space for the bottom tab bar */
+    }
+
+    .admin-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-content {
+        padding: 0 14px 40px;
+    }
+
+    .admin-topbar {
+        padding: 16px 14px 0;
+    }
+
+    .admin-topbar-title h1 {
+        font-size: 1.2rem;
+    }
+
+    /* Show mobile bottom tab bar */
+    .admin-mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #0f1d13;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding: 6px 4px;
+        padding-bottom: calc(6px + env(safe-area-inset-bottom));
+        gap: 0;
+        box-shadow: 0 -4px 24px rgba(0,0,0,0.35);
+    }
+
+    .admin-mobile-nav-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        padding: 6px 2px;
+        border: none;
+        background: transparent;
+        color: rgba(255,255,255,0.45);
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background 180ms, color 180ms;
+        min-width: 0;
+    }
+
+    .admin-mobile-nav-btn:active {
+        background: rgba(255,255,255,0.06);
+    }
+
+    .admin-mobile-nav-btn.active {
+        color: #5de691;
+        background: rgba(10, 171, 82, 0.15);
+    }
+
+    .admin-mobile-nav-btn svg {
+        flex-shrink: 0;
+    }
+
+    .admin-mobile-nav-label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 16px 14px;
+        gap: 12px;
+    }
+
+    .stat-card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .stat-card-value {
+        font-size: 1.4rem;
+    }
 }
 
 .stat-card {
@@ -3599,11 +3904,11 @@ p {
 .form-textarea,
 .form-select {
     padding: 11px 14px;
-    border: 1px solid #dde8dd;
+    border: 1px solid var(--line);
     border-radius: 10px;
     font-size: 0.9rem;
-    color: #0f1d13;
-    background: #f9fdf9;
+    color: var(--ink);
+    background: var(--surface-soft);
     outline: none;
     transition: border 160ms, box-shadow 160ms, background 160ms;
     font-family: inherit;
@@ -3614,7 +3919,7 @@ p {
 .form-select:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(7,134,63,0.1);
-    background: #fff;
+    background: var(--surface);
 }
 
 .form-textarea {

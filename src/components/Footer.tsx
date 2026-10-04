@@ -6,7 +6,6 @@ import {
   Phone,
   Mail,
   Clock,
-  ArrowRight,
 } from "lucide-react";
 import {
   ADDRESS,
@@ -85,19 +84,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="footer-col">
-            <h3 className="footer-col-title">Quick Links</h3>
-            <ul>
-              <li><Link to="/"><ArrowRight size={14} />{t("nav.home")}</Link></li>
-              <li><Link to="/about"><ArrowRight size={14} />{t("nav.about")}</Link></li>
-              <li><Link to="/services"><ArrowRight size={14} />{t("nav.services")}</Link></li>
-              <li><Link to="/experience"><ArrowRight size={14} />{t("nav.experience")}</Link></li>
-              <li><Link to="/booking"><ArrowRight size={14} />{t("nav.book")}</Link></li>
-              <li><Link to="/faq"><ArrowRight size={14} />{t("nav.faq")}</Link></li>
-              <li><Link to="/contact"><ArrowRight size={14} />{t("nav.contact")}</Link></li>
-            </ul>
-          </div>
+
 
           {/* Contact */}
           <div className="footer-col">

@@ -146,7 +146,8 @@ export function LiveChat() {
     // Auto-open after 30 seconds if user hasn't closed it
     const timer = setTimeout(() => {
       setOpen(o => {
-        if (!o && !hidden) return true;
+        // Only auto-open on desktop (width > 768px)
+        if (!o && !hidden && window.innerWidth > 768) return true;
         return o;
       });
     }, 30000);

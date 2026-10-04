@@ -115,11 +115,16 @@ export function Booking() {
         setSubmitSuccess(true);
         (event.target as HTMLFormElement).reset();
       } else {
-        alert("Something went wrong. Please try again.");
+        const errorData = await response.json().catch(() => null);
+        const errorMsg =
+          errorData?.error ||
+          (Array.isArray(errorData?.errors) ? errorData.errors.map((e: any) => e.msg).join(", ") : null) ||
+          "Something went wrong. Please try again.";
+        alert(errorMsg);
       }
     } catch (error) {
-      console.error(error);
-      alert("Failed to connect to the server.");
+      console.error("Booking error:", error);
+      alert(`Failed to connect to the server (${API_BASE}). Please make sure the backend server is running.`);
     } finally {
       setIsSubmitting(false);
     }
